@@ -8,7 +8,7 @@ import { Navbar } from "../components/sections/Navbar";
 
 export default function Home() {
   return (
-    <div className="relative isolate">
+    <div className="relative isolate bg-linear-to-b from-blue-50/70 via-sky-50/60 to-zinc-50/75 dark:from-zinc-950 dark:via-zinc-950 dark:to-zinc-900">
       <BackgroundGlow />
 
       <div className="relative z-10">

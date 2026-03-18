@@ -5,7 +5,7 @@ import { TimelineItem } from "@/components/ui/Timeline/TimelineItem"
 
 export function Timeline() {
 	return (
-		<section id="works" className="bg-zinc-50/82 px-4 py-20 sm:px-6 md:py-28 dark:bg-zinc-950/72">
+		<section id="works" className="bg-zinc-50/46 px-4 py-20 backdrop-blur-[1px] sm:px-6 md:py-28 dark:bg-zinc-950/72">
 			<ScrollReveal className="mx-auto w-full max-w-5xl">
 				<TimelineHeader />
 

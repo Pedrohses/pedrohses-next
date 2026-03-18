@@ -110,7 +110,7 @@ export function Navbar() {
   }
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 border-b border-zinc-200/80 bg-white/90 backdrop-blur-sm dark:border-zinc-800 dark:bg-black/80">
+    <nav className="fixed inset-x-0 top-0 z-50 border-b border-zinc-200/70 bg-white/62 backdrop-blur-md dark:border-zinc-800 dark:bg-black/80">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
         <a href="#hero" className="text-sm font-semibold tracking-[0.2em] text-zinc-800 uppercase dark:text-zinc-100">
           Pedro Silva

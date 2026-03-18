@@ -6,7 +6,7 @@ import { aboutHighlights } from "@/components/ui/About/aboutData"
 
 export function About() {
 	return (
-		<section id="about" className="bg-zinc-50/82 px-4 py-20 sm:px-6 md:py-28 dark:bg-zinc-950/72">
+		<section id="about" className="bg-zinc-50/48 px-4 py-20 backdrop-blur-[1px] sm:px-6 md:py-28 dark:bg-zinc-950/72">
 			<ScrollReveal className="mx-auto flex w-full max-w-5xl flex-col gap-10">
 				<AboutHeader />
 

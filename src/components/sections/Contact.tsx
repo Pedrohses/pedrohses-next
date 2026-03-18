@@ -6,7 +6,7 @@ import { contactChannels } from "@/components/ui/Contact/contactData"
 
 export function Contact() {
   return (
-    <section id="contact" className="bg-white/78 px-4 py-20 sm:px-6 md:py-28 dark:bg-black/70">
+    <section id="contact" className="bg-white/55 px-4 py-20 backdrop-blur-[1px] sm:px-6 md:py-28 dark:bg-black/70">
       <ScrollReveal className="mx-auto flex w-full max-w-5xl flex-col gap-10">
         <ContactHeader />
 

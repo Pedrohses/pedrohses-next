@@ -33,7 +33,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="flex min-h-screen flex-col items-center justify-center bg-white/78 px-4 py-24 text-center sm:px-6 md:py-28 dark:bg-black/70"
+      className="flex min-h-screen flex-col items-center justify-center bg-white/55 px-4 py-24 text-center backdrop-blur-[1px] sm:px-6 md:py-28 dark:bg-black/70"
     >
       <motion.div
         variants={containerVariants}

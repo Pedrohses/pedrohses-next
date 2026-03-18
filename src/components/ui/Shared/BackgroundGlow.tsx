@@ -11,7 +11,7 @@ export function BackgroundGlow() {
 
   return (
     <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_20%,rgba(37,99,235,0.24),transparent_34%),radial-gradient(circle_at_86%_18%,rgba(14,165,233,0.2),transparent_32%),radial-gradient(circle_at_50%_85%,rgba(59,130,246,0.14),transparent_40%)] opacity-80 sm:opacity-100" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_20%,rgba(37,99,235,0.34),transparent_36%),radial-gradient(circle_at_86%_18%,rgba(14,165,233,0.3),transparent_34%),radial-gradient(circle_at_50%_85%,rgba(59,130,246,0.22),transparent_42%)] opacity-95 mix-blend-multiply sm:opacity-100" />
       <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(circle_at_14%_18%,rgba(59,130,246,0.38),transparent_36%),radial-gradient(circle_at_86%_20%,rgba(34,211,238,0.28),transparent_34%),radial-gradient(circle_at_50%_86%,rgba(96,165,250,0.22),transparent_42%)]" />
 
       <motion.div
@@ -27,13 +27,13 @@ export function BackgroundGlow() {
       />
 
       <motion.div
-        className="absolute right-[-48px] top-[28%] h-72 w-72 rounded-full bg-cyan-300/22 blur-3xl sm:right-[-80px] sm:top-1/3 sm:h-80 sm:w-80"
+        className="absolute -right-12 top-[28%] h-72 w-72 rounded-full bg-cyan-300/22 blur-3xl sm:-right-20 sm:top-1/3 sm:h-80 sm:w-80"
         animate={{ x: [30, -20, 30], y: [10, -20, 10], scale: [1.08, 0.96, 1.08] }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
       />
 
       <motion.div
-        className="absolute bottom-[-84px] left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-blue-500/18 blur-3xl sm:bottom-[-120px] sm:left-1/3 sm:h-96 sm:w-96 sm:translate-x-0"
+        className="absolute -bottom-21 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-blue-500/18 blur-3xl sm:-bottom-30 sm:left-1/3 sm:h-96 sm:w-96 sm:translate-x-0"
         animate={{ x: [-10, 20, -10], y: [20, -15, 20], scale: [0.94, 1.08, 0.94] }}
         transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
       />
