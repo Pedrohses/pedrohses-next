@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { NavLink } from "../ui/Navbar/NavLink"
 import { cn } from "@/lib/utils"
 
@@ -14,9 +14,30 @@ const links = [
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    if (typeof window === "undefined") {
+      return "light"
+    }
+
+    const savedTheme = localStorage.getItem("theme")
+    if (savedTheme === "dark" || savedTheme === "light") {
+      return savedTheme
+    }
+
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+  })
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme === "dark")
+    localStorage.setItem("theme", theme)
+  }, [theme])
 
   const handleCloseMenu = () => {
     setIsOpen(false)
+  }
+
+  const handleToggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"))
   }
 
   return (
@@ -26,23 +47,44 @@ export function Navbar() {
           Pedro Silva
         </a>
 
-        <button
-          type="button"
-          className="rounded-md border border-zinc-300 px-3 py-2 text-sm font-medium text-zinc-800 md:hidden dark:border-zinc-700 dark:text-zinc-100"
-          onClick={() => setIsOpen((prev) => !prev)}
-          aria-expanded={isOpen}
-          aria-controls="mobile-nav"
-          aria-label="Abrir menu de navegacao"
-        >
-          Menu
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            className="rounded-md border border-zinc-300 px-3 py-2 text-sm font-medium text-zinc-800 md:hidden dark:border-zinc-700 dark:text-zinc-100"
+            onClick={() => setIsOpen((prev) => !prev)}
+            aria-expanded={isOpen}
+            aria-controls="mobile-nav"
+            aria-label="Abrir menu de navegacao"
+          >
+            Menu
+          </button>
 
-        <div className="hidden items-center gap-6 md:flex">
-          {links.map((link) => (
-            <NavLink key={link.href} href={link.href} className="text-sm">
-              {link.label}
-            </NavLink>
-          ))}
+          <div className="hidden items-center gap-6 md:flex">
+            {links.map((link) => (
+              <NavLink key={link.href} href={link.href} className="text-sm">
+                {link.label}
+              </NavLink>
+            ))}
+
+            <button
+              type="button"
+              className="inline-flex items-center gap-2 rounded-full border border-zinc-300 px-3 py-2 text-sm font-medium text-zinc-800 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800"
+              onClick={handleToggleTheme}
+              aria-label={theme === "dark" ? "Ativar modo claro" : "Ativar modo escuro"}
+            >
+              {theme === "dark" ? (
+                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <circle cx="12" cy="12" r="4" />
+                  <path d="M12 2v2.5M12 19.5V22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M2 12h2.5M19.5 12H22M4.93 19.07l1.77-1.77M17.3 6.7l1.77-1.77" />
+                </svg>
+              ) : (
+                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+                </svg>
+              )}
+              <span>{theme === "dark" ? "Claro" : "Escuro"}</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -59,6 +101,24 @@ export function Navbar() {
               {link.label}
             </NavLink>
           ))}
+          <button
+            type="button"
+            className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full border border-zinc-300 px-3 py-2 text-sm font-medium text-zinc-800 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800"
+            onClick={handleToggleTheme}
+            aria-label={theme === "dark" ? "Ativar modo claro" : "Ativar modo escuro"}
+          >
+            {theme === "dark" ? (
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2.5M12 19.5V22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M2 12h2.5M19.5 12H22M4.93 19.07l1.77-1.77M17.3 6.7l1.77-1.77" />
+              </svg>
+            ) : (
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+              </svg>
+            )}
+            <span>{theme === "dark" ? "Modo claro" : "Modo escuro"}</span>
+          </button>
         </div>
       </div>
     </nav>
