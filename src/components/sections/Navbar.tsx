@@ -14,30 +14,98 @@ const links = [
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const [theme, setTheme] = useState<"light" | "dark">(() => {
-    if (typeof window === "undefined") {
-      return "light"
-    }
-
-    const savedTheme = localStorage.getItem("theme")
-    if (savedTheme === "dark" || savedTheme === "light") {
-      return savedTheme
-    }
-
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
-  })
+  const [activeHref, setActiveHref] = useState<string>("#hero")
+  const [theme, setTheme] = useState<"light" | "dark">("light")
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark")
-    localStorage.setItem("theme", theme)
-  }, [theme])
+    queueMicrotask(() => {
+      const savedTheme = localStorage.getItem("theme")
+      const initialTheme = savedTheme === "dark" || savedTheme === "light"
+        ? savedTheme
+        : window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light"
 
-  const handleCloseMenu = () => {
-    setIsOpen(false)
-  }
+      document.documentElement.classList.toggle("dark", initialTheme === "dark")
+      setTheme((prevTheme) => (prevTheme === initialTheme ? prevTheme : initialTheme))
+    })
+  }, [])
+
+  useEffect(() => {
+    let rafId = 0
+    let isTicking = false
+
+    const getActiveSection = () => {
+      const probeOffset = Math.max(190, window.innerHeight * 0.32)
+      const scrollPosition = window.scrollY + probeOffset
+      let nextActiveHref = "#hero"
+
+      const nearBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 16
+      if (nearBottom) {
+        return "#contact"
+      }
+
+      for (const link of links) {
+        const section = document.querySelector(link.href)
+        if (!section) {
+          continue
+        }
+
+        if (scrollPosition >= section.getBoundingClientRect().top + window.scrollY) {
+          nextActiveHref = link.href
+        }
+      }
+
+      return nextActiveHref
+    }
+
+    const updateActiveSection = () => {
+      isTicking = false
+      const nextHref = getActiveSection()
+      setActiveHref((prevHref) => (prevHref === nextHref ? prevHref : nextHref))
+    }
+
+    const handleScroll = () => {
+      if (isTicking) {
+        return
+      }
+
+      isTicking = true
+      rafId = window.requestAnimationFrame(updateActiveSection)
+    }
+
+    const handleHashChange = () => {
+      const hash = window.location.hash
+      if (links.some((link) => link.href === hash)) {
+        setActiveHref(hash)
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    window.addEventListener("resize", handleScroll)
+    window.addEventListener("hashchange", handleHashChange)
+    handleScroll()
+
+    return () => {
+      window.cancelAnimationFrame(rafId)
+      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("resize", handleScroll)
+      window.removeEventListener("hashchange", handleHashChange)
+    }
+  }, [])
 
   const handleToggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"))
+    setTheme((prevTheme) => {
+      const nextTheme = prevTheme === "dark" ? "light" : "dark"
+      document.documentElement.classList.toggle("dark", nextTheme === "dark")
+      localStorage.setItem("theme", nextTheme)
+      return nextTheme
+    })
+  }
+
+  const handleNavClick = (href: string) => {
+    setActiveHref(href)
+    setIsOpen(false)
   }
 
   return (
@@ -61,7 +129,13 @@ export function Navbar() {
 
           <div className="hidden items-center gap-6 md:flex">
             {links.map((link) => (
-              <NavLink key={link.href} href={link.href} className="text-sm">
+              <NavLink
+                key={link.href}
+                href={link.href}
+                className="text-sm"
+                isActive={activeHref === link.href}
+                onClick={() => handleNavClick(link.href)}
+              >
                 {link.label}
               </NavLink>
             ))}
@@ -97,7 +171,13 @@ export function Navbar() {
       >
         <div className="flex flex-col gap-2">
           {links.map((link) => (
-            <NavLink key={`mobile-${link.href}`} href={link.href} className="w-full py-2 text-base" onClick={handleCloseMenu}>
+            <NavLink
+              key={`mobile-${link.href}`}
+              href={link.href}
+              className="w-full py-2 text-base"
+              isActive={activeHref === link.href}
+              onClick={() => handleNavClick(link.href)}
+            >
               {link.label}
             </NavLink>
           ))}

@@ -8,14 +8,20 @@ interface NavLinkProps {
   href: string
   children: React.ReactNode
   className?: string
+  isActive?: boolean
   onClick?: React.MouseEventHandler<HTMLAnchorElement>
 }
 
-export function NavLink({ href, children, className, onClick }: NavLinkProps) {
+export function NavLink({ href, children, className, isActive = false, onClick }: NavLinkProps) {
   return (
-    <Link href={href} className={cn("relative group py-2", className)} onClick={onClick}>
+    <Link href={href} className={cn("relative group py-2", className)} onClick={onClick} aria-current={isActive ? "page" : undefined}>
       <motion.span
-        className="text-base font-medium font-mono text-zinc-600 transition-colors group-hover:text-zinc-900 dark:text-zinc-400 dark:group-hover:text-zinc-50"
+        className={cn(
+          "text-base font-medium font-mono transition-colors",
+          isActive
+            ? "text-zinc-900 dark:text-zinc-50"
+            : "text-zinc-600 group-hover:text-zinc-900 dark:text-zinc-400 dark:group-hover:text-zinc-50"
+        )}
         whileHover={{ y: -1 }}
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
       >
@@ -23,7 +29,10 @@ export function NavLink({ href, children, className, onClick }: NavLinkProps) {
       </motion.span>
       
       <motion.span 
-        className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 origin-left scale-x-0 transition-transform group-hover:scale-x-100"
+        className={cn(
+          "absolute bottom-0 left-0 h-0.5 w-full origin-left bg-blue-600 transition-transform",
+          isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+        )}
         aria-hidden="true"
       />
     </Link>
