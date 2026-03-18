@@ -177,7 +177,29 @@ export function Navbar() {
                   </motion.span>
                 )}
               </AnimatePresence>
-              <span>{theme === "dark" ? "Claro" : "Escuro"}</span>
+              <AnimatePresence mode="wait" initial={false}>
+                {theme === "dark" ? (
+                  <motion.span
+                    key="theme-label-light-desktop"
+                    initial={{ opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{ duration: 0.18, ease: "easeOut" }}
+                  >
+                    Claro
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    key="theme-label-dark-desktop"
+                    initial={{ opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{ duration: 0.18, ease: "easeOut" }}
+                  >
+                    Escuro
+                  </motion.span>
+                )}
+              </AnimatePresence>
             </button>
           </div>
         </div>
@@ -238,7 +260,29 @@ export function Navbar() {
                 </motion.span>
               )}
             </AnimatePresence>
-            <span>{theme === "dark" ? "Modo claro" : "Modo escuro"}</span>
+            <AnimatePresence mode="wait" initial={false}>
+              {theme === "dark" ? (
+                <motion.span
+                  key="theme-label-light-mobile"
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -4 }}
+                  transition={{ duration: 0.18, ease: "easeOut" }}
+                >
+                  Modo claro
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="theme-label-dark-mobile"
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -4 }}
+                  transition={{ duration: 0.18, ease: "easeOut" }}
+                >
+                  Modo escuro
+                </motion.span>
+              )}
+            </AnimatePresence>
           </button>
         </div>
       </div>
