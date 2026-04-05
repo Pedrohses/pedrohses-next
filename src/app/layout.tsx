@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pedro Silva | Desenvolvedor Back-end",
+  title: "Pedro Silva | Desenvolvedor Full Stack",
   description: "Portfólio de Pedro Silva. Especializado na construção de APIs robustas e escaláveis com Node.js e Python.",
 };
 

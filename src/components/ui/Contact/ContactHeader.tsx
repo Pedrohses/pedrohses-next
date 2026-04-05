@@ -6,7 +6,7 @@ export function ContactHeader() {
         Vamos conversar sobre seu próximo projeto
       </h2>
       <p className="mx-auto max-w-3xl text-base leading-relaxed text-zinc-600 md:mx-0 md:text-lg dark:text-zinc-400">
-        Se você busca apoio para APIs, arquitetura backend ou evolução de plataforma, me chama. Este bloco também é
+        Se você busca apoio para APIs, arquitetura full stack ou evolução de plataforma, me chama. Este bloco também é
         placeholder para você ajustar com seu tom e canais reais.
       </p>
     </header>

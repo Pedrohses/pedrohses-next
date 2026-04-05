@@ -4,7 +4,7 @@ export const experiences: Experience[] = [
   {
     id: "exp-3",
     company: "Besolution",
-    role: "Desenvolvedor Back-end - Junior",
+    role: "Desenvolvedor Full Stack - Junior",
     period: "Set 2025 - Atual",
     location: "Remoto",
     summary:
@@ -23,7 +23,7 @@ export const experiences: Experience[] = [
   {
     id: "exp-2",
     company: "Omelete&Company",
-    role: "Desenvolvedor Full-Stack - Estagiário",
+    role: "Desenvolvedor Full Stack - Estagiário",
     period: "Abr 2024 - Set 2025",
     location: "Remoto",
     summary:

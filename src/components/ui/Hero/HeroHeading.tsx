@@ -13,7 +13,7 @@ export function HeroHeading({ itemVariants }: HeroHeadingProps) {
         Pedro Silva
       </h1>
       <p className="text-lg font-semibold tracking-tight text-blue-600 sm:text-2xl md:text-3xl dark:text-blue-500">
-        Desenvolvedor Back-end
+        Desenvolvedor Full Stack
       </p>
     </motion.div>
   )
