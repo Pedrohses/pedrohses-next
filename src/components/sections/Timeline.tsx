@@ -2,6 +2,7 @@ import { experiences } from "@/components/ui/Timeline/timelineData"
 import { ScrollReveal } from "@/components/ui/Shared/ScrollReveal"
 import { TimelineHeader } from "@/components/ui/Timeline/TimelineHeader"
 import { TimelineItem } from "@/components/ui/Timeline/TimelineItem"
+import { TimelineLine } from "@/components/ui/Timeline/TimelineLine"
 
 export function Timeline() {
 	return (
@@ -10,7 +11,7 @@ export function Timeline() {
 				<TimelineHeader />
 
 				<div className="relative pl-8 sm:pl-10">
-					<div className="absolute left-2 top-0 h-full w-px bg-zinc-300 sm:left-3 dark:bg-zinc-700" aria-hidden="true" />
+					<TimelineLine />
 
 					<ol className="space-y-8 md:space-y-10">
 						{experiences.map((experience, index) => (
