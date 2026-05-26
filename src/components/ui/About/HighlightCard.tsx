@@ -31,7 +31,7 @@ const icons: Record<AboutHighlightIcon, React.ReactNode> = {
 
 export function HighlightCard({ item }: HighlightCardProps) {
   return (
-    <article className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition-transform hover:-translate-y-1 dark:border-zinc-800 dark:bg-zinc-900">
+    <article className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-blue-200/60 hover:shadow-lg hover:shadow-blue-100/50 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-blue-800/50 dark:hover:shadow-blue-950/30">
       <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-blue-600 dark:bg-blue-950/40 dark:text-blue-400">
         {icons[item.icon]}
       </div>

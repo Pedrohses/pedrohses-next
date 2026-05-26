@@ -1,7 +1,7 @@
 export function TimelineHeader() {
   return (
     <header className="mb-10 text-center md:mb-12 md:text-left">
-      <p className="text-sm font-semibold tracking-[0.18em] text-blue-600 uppercase">Experiencia</p>
+      <p className="text-sm font-semibold tracking-[0.18em] text-blue-600 uppercase">Experiência</p>
       <h2 className="mt-3 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl md:text-5xl dark:text-zinc-50">
         Linha do tempo profissional
       </h2>

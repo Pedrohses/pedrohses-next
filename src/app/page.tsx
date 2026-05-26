@@ -5,12 +5,14 @@ import { Hero } from "@/components/sections/Hero";
 import { Projects } from "@/components/sections/Projects";
 import { Timeline } from "@/components/sections/Timeline";
 import { BackgroundGlow } from "@/components/ui/Shared/BackgroundGlow";
+import { ScrollProgress } from "@/components/ui/Shared/ScrollProgress";
 import { Navbar } from "../components/sections/Navbar";
 
 export default function Home() {
   return (
     <div className="relative isolate bg-linear-to-b from-blue-50/70 via-sky-50/60 to-zinc-50/75 dark:from-zinc-950 dark:via-zinc-950 dark:to-zinc-900">
       <BackgroundGlow />
+      <ScrollProgress />
 
       <div className="relative z-10">
         <Navbar />

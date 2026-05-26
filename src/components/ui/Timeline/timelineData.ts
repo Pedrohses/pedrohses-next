@@ -8,7 +8,7 @@ export const experiences: Experience[] = [
     period: "Set 2025 - Atual",
     location: "Remoto",
     summary:
-      "Atuação em desenvolvimento e manutencao de APIs para projetos diversos voltados ao ensino (SENAI), com foco em performance, seguranca e escalabilidade.",
+      "Atuação em desenvolvimento e manutenção de APIs para projetos diversos voltados ao ensino (SENAI), com foco em performance, segurança e escalabilidade.",
     skills: [
       "Desenvolvimento de APIs: Criação e manutenção de APIs RESTful escaláveis utilizando NestJS.",
       "Performance: Análise e otimização de endpoints críticos para correção de gargalos.",
@@ -45,7 +45,7 @@ export const experiences: Experience[] = [
     period: "Dez 2022 - Mar 2024",
     location: "Guarulhos, SP",
     summary:
-      "Lideranca tecnica em arquitetura de microsservicos e melhoria de observabilidade da plataforma.",
+      "Início da carreira com foco em suporte administrativo e organização operacional, desenvolvendo atenção a detalhes e disciplina no ambiente corporativo.",
     skills: [
       "Suporte eficiente às rotinas administrativas.",
       "Criação e gerenciamento de planilhas no Excel.",

@@ -10,7 +10,7 @@ export const aboutHighlights: AboutHighlight[] = [
   {
     title: "Foco em arquitetura",
     description:
-      "Experiencia com APIs modulares, organização por camadas e código orientado a manutenção.",
+      "Experiência com APIs modulares, organização por camadas e código orientado a manutenção.",
     icon: "architecture",
   },
   {

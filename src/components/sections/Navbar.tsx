@@ -123,7 +123,7 @@ export function Navbar() {
             onClick={() => setIsOpen((prev) => !prev)}
             aria-expanded={isOpen}
             aria-controls="mobile-nav"
-            aria-label="Abrir menu de navegacao"
+            aria-label="Abrir menu de navegação"
           >
             Menu
           </button>

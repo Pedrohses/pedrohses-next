@@ -6,7 +6,7 @@ export function ProjectsHeader() {
         Projetos em destaque
       </h2>
       <p className="mt-4 max-w-3xl text-base leading-relaxed text-zinc-600 md:text-lg dark:text-zinc-400">
-        Esta seção exibe apenas os repositorios fixados (pinned) no perfil do GitHub.
+        Projetos escolhidos que representam minha jornada técnica e paixão por construir software bem feito.
       </p>
     </header>
   )
