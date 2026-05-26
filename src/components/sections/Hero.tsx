@@ -7,7 +7,6 @@ import { HeroDescription } from "@/components/ui/Hero/HeroDescription"
 import { HeroHeading } from "@/components/ui/Hero/HeroHeading"
 import { HeroTechBadges } from "@/components/ui/Hero/HeroTechBadges"
 import { HeroParticles } from "@/components/ui/Hero/HeroParticles"
-import { HeroStatusBadge } from "@/components/ui/Hero/HeroStatusBadge"
 
 export function Hero() {
   const containerVariants: Variants = {
@@ -50,7 +49,6 @@ export function Hero() {
         </div>
 
         <div className="flex flex-col items-center gap-5 text-center lg:order-1 lg:items-start lg:text-left">
-          <HeroStatusBadge itemVariants={itemVariants} />
           <HeroHeading itemVariants={itemVariants} />
           <HeroDescription itemVariants={itemVariants} />
           <HeroTechBadges itemVariants={itemVariants} />
