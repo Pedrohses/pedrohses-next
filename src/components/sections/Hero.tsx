@@ -35,20 +35,25 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen flex-col items-center justify-center bg-white/55 px-4 py-24 text-center backdrop-blur-[1px] sm:px-6 md:py-28 dark:bg-black/70"
+      className="relative flex min-h-screen flex-col items-center justify-center bg-white/55 px-6 py-24 backdrop-blur-[1px] sm:px-8 md:py-28 dark:bg-black/70"
     >
       <HeroParticles />
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="flex w-full max-w-3xl flex-col items-center gap-6 sm:gap-7"
+        className="grid w-full max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-20"
       >
-        <HeroAvatar itemVariants={itemVariants} />
-        <HeroHeading itemVariants={itemVariants} />
-        <HeroDescription itemVariants={itemVariants} />
-        <HeroTechBadges itemVariants={itemVariants} />
-        <HeroActions itemVariants={itemVariants} />
+        <div className="flex items-center justify-center lg:order-2">
+          <HeroAvatar itemVariants={itemVariants} />
+        </div>
+
+        <div className="flex flex-col items-center gap-5 text-center lg:order-1 lg:items-start lg:text-left">
+          <HeroHeading itemVariants={itemVariants} />
+          <HeroDescription itemVariants={itemVariants} />
+          <HeroTechBadges itemVariants={itemVariants} />
+          <HeroActions itemVariants={itemVariants} />
+        </div>
       </motion.div>
 
       <motion.a

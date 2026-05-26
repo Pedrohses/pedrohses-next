@@ -12,7 +12,7 @@ export function HeroTechBadges({ itemVariants }: HeroTechBadgesProps) {
   return (
     <motion.div
       variants={itemVariants}
-      className="flex flex-wrap items-center justify-center gap-2"
+      className="flex flex-wrap items-center justify-center gap-2 lg:justify-start"
     >
       {techs.map((tech) => (
         <span
