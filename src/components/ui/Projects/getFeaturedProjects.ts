@@ -112,12 +112,14 @@ export async function getFeaturedProjects(): Promise<Project[]> {
     )
 
     if (!response.ok) {
+      console.error(`GitHub API responded with status ${response.status}`)
       return []
     }
 
     const result = (await response.json()) as GitHubGraphQLResponse
 
     if (result.errors && result.errors.length > 0) {
+      console.error("GitHub GraphQL errors:", result.errors)
       return []
     }
 
@@ -128,7 +130,8 @@ export async function getFeaturedProjects(): Promise<Project[]> {
     }
 
     return pinnedRepos.map(mapPinnedRepoToProject)
-  } catch {
+  } catch (error) {
+    console.error("Failed to fetch GitHub pinned projects:", error)
     return []
   }
 }

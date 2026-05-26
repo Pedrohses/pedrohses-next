@@ -13,24 +13,53 @@ const links = [
   { href: "#contact", label: "Contato" },
 ]
 
+const getCookieTheme = (): "light" | "dark" | null => {
+  const matched = document.cookie.match(/(?:^|; )theme=(light|dark)(?:;|$)/)
+  if (!matched) {
+    return null
+  }
+
+  return matched[1] === "light" || matched[1] === "dark" ? matched[1] : null
+}
+
+const persistTheme = (theme: "light" | "dark") => {
+  localStorage.setItem("theme", theme)
+  document.cookie = `theme=${theme}; path=/; max-age=31536000; samesite=lax`
+}
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeHref, setActiveHref] = useState<string>("#hero")
-  const [theme, setTheme] = useState<"light" | "dark">("light")
+  const [theme, setTheme] = useState<"light" | "dark">("dark")
 
   useEffect(() => {
-    queueMicrotask(() => {
-      const savedTheme = localStorage.getItem("theme")
-      const initialTheme = savedTheme === "dark" || savedTheme === "light"
-        ? savedTheme
-        : window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light"
+    let rafId = 0
 
-      document.documentElement.classList.toggle("dark", initialTheme === "dark")
-      setTheme((prevTheme) => (prevTheme === initialTheme ? prevTheme : initialTheme))
-    })
+    const syncThemeFromStorage = () => {
+      const cookieTheme = getCookieTheme()
+      const savedTheme = localStorage.getItem("theme")
+      const preferredTheme =
+        cookieTheme === "dark" || cookieTheme === "light"
+          ? cookieTheme
+          : savedTheme === "dark" || savedTheme === "light"
+            ? savedTheme
+            : "dark"
+
+      setTheme((prevTheme) => (prevTheme === preferredTheme ? prevTheme : preferredTheme))
+      persistTheme(preferredTheme)
+    }
+
+    rafId = window.requestAnimationFrame(syncThemeFromStorage)
+
+    return () => {
+      window.cancelAnimationFrame(rafId)
+    }
   }, [])
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme === "dark")
+    document.documentElement.style.colorScheme = theme
+  }, [theme])
 
   useEffect(() => {
     let rafId = 0
@@ -98,8 +127,7 @@ export function Navbar() {
   const handleToggleTheme = () => {
     setTheme((prevTheme) => {
       const nextTheme = prevTheme === "dark" ? "light" : "dark"
-      document.documentElement.classList.toggle("dark", nextTheme === "dark")
-      localStorage.setItem("theme", nextTheme)
+      persistTheme(nextTheme)
       return nextTheme
     })
   }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -40,13 +41,36 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Pedro Silva",
+  jobTitle: "Desenvolvedor Full Stack",
+  url: "https://www.pedrohses.dev/",
+  email: "pedrohsesilva@gmail.com",
+  sameAs: [
+    "https://github.com/Pedrohses",
+    "https://linkedin.com/in/pedro-silva-43985125b",
+  ],
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies()
+  const cookieTheme = cookieStore.get("theme")?.value
+  const serverTheme = cookieTheme === "light" || cookieTheme === "dark" ? cookieTheme : "dark"
+
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className={serverTheme === "dark" ? "dark" : undefined} suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
