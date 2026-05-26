@@ -9,7 +9,7 @@ interface HeroActionsProps {
 
 export function HeroActions({ itemVariants }: HeroActionsProps) {
   return (
-    <motion.div variants={itemVariants} className="flex flex-col items-center gap-4 sm:flex-row sm:gap-x-6 lg:items-start">
+    <motion.div variants={itemVariants} className="flex flex-col items-center gap-4 sm:flex-row sm:items-center sm:gap-x-6">
       <Button href="#projects" variant="default" className="w-full sm:w-auto">
         Ver meus projetos
       </Button>
