@@ -14,9 +14,30 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const title = "Pedro Silva | Desenvolvedor Full Stack";
+const description =
+  "Portfólio de Pedro Silva. Especializado na construção de APIs robustas e escaláveis com Node.js e Python.";
+
 export const metadata: Metadata = {
-  title: "Pedro Silva | Desenvolvedor Full Stack",
-  description: "Portfólio de Pedro Silva. Especializado na construção de APIs robustas e escaláveis com Node.js e Python.",
+  title,
+  description,
+  metadataBase: new URL(
+    process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "https://www.pedrohses.dev/"
+  ),
+  openGraph: {
+    title,
+    description,
+    siteName: "Pedro Silva",
+    locale: "pt_BR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 export default function RootLayout({
