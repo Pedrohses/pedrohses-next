@@ -34,7 +34,7 @@ export const experiences: Experience[] = [
       "Bancos SQL e NoSQL Mysql e MongoDB",
       "Containers Docker",
       "Metodologia Scrum",
-      "Monitoramente e desenvolvimento de sistemas com AWS",
+      "Monitoramento e desenvolvimento de sistemas com AWS",
       "Desenvolvimento de Softwares para envio de E-mail com Python",
     ],
   },

@@ -6,7 +6,7 @@ import { Projects } from "@/components/sections/Projects";
 import { Timeline } from "@/components/sections/Timeline";
 import { BackgroundGlow } from "@/components/ui/Shared/BackgroundGlow";
 import { ScrollProgress } from "@/components/ui/Shared/ScrollProgress";
-import { Navbar } from "../components/sections/Navbar";
+import { Navbar } from "@/components/sections/Navbar";
 
 export default function Home() {
   return (

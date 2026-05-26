@@ -13,10 +13,10 @@ export function ProjectsEmptyState() {
       </svg>
       <div className="space-y-1">
         <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
-          Nenhum projeto encontrado
+          Projetos em breve
         </p>
         <p className="text-xs text-zinc-400 dark:text-zinc-600">
-          Configure <code className="font-mono">GITHUB_TOKEN</code> para carregar os repositórios fixados.
+          Confira o perfil no GitHub para ver os repositórios mais recentes.
         </p>
       </div>
       <a

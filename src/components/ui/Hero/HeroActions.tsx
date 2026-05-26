@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, type Variants } from "motion/react"
-import { Button } from "@/components/ui/Navbar/Button"
+import { Button } from "@/components/ui/Shared/Button"
 
 interface HeroActionsProps {
   itemVariants: Variants

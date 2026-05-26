@@ -1,6 +1,6 @@
 import { experiences } from "@/components/ui/Timeline/timelineData"
 import { ScrollReveal } from "@/components/ui/Shared/ScrollReveal"
-import { TimelineHeader } from "@/components/ui/Timeline/TimelineHeader"
+import { SectionHeader } from "@/components/ui/Shared/SectionHeader"
 import { TimelineItem } from "@/components/ui/Timeline/TimelineItem"
 import { TimelineLine } from "@/components/ui/Timeline/TimelineLine"
 
@@ -8,7 +8,12 @@ export function Timeline() {
 	return (
 		<section id="works" className="bg-zinc-50/46 px-4 py-20 backdrop-blur-[1px] sm:px-6 md:py-28 dark:bg-zinc-950/72">
 			<ScrollReveal className="mx-auto w-full max-w-5xl">
-				<TimelineHeader />
+				<SectionHeader
+					label="Experiência"
+					heading="Linha do tempo profissional"
+					description="Uma visão resumida da minha jornada, com foco em entrega de valor, confiabilidade e evolução técnica."
+					className="mb-10 md:mb-12"
+				/>
 
 				<div className="relative pl-8 sm:pl-10">
 					<TimelineLine />
