@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Page
 
-## Getting Started
+Portfólio pessoal desenvolvido com Next.js, TypeScript e Tailwind CSS.
 
-First, run the development server:
+O projeto apresenta seções como:
+
+- Hero
+- Sobre
+- Projetos em destaque
+- Linha do tempo
+- Contato
+
+## Projetos em destaque
+
+A seção de projetos busca apenas os repositórios fixados (pinned) no perfil do GitHub, via API GraphQL.
+
+- Fonte: `user.pinnedItems` (GraphQL)
+- Quantidade: até 6 repositórios
+
+Se a chamada falhar, a seção pode ficar vazia temporariamente.
+
+## Stack
+
+- Next.js (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+- Motion
+
+## Como rodar (Yarn)
+
+Este projeto costuma ser executado com Yarn.
+
+1. Instale as dependências:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+yarn
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Rode em desenvolvimento:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Acesse no navegador:
 
-## Learn More
+```txt
+http://localhost:3000
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts úteis
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+yarn dev
+yarn build
+yarn start
+yarn lint
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Variáveis de ambiente (opcional)
 
-## Deploy on Vercel
+Crie um arquivo `.env.local` na raiz para customizar a busca dos projetos do GitHub:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```env
+GITHUB_USERNAME=Pedrohses
+GITHUB_TOKEN=
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `GITHUB_USERNAME`: usuário cujos starred repos serão exibidos.
+- `GITHUB_TOKEN`: token necessario para consultar a API GraphQL e carregar os repositórios pinnados.
+
+Se `GITHUB_TOKEN` não for informado, a aplicação continua funcionando normalmente.
+
+## Estrutura principal
+
+- [src/app/page.tsx](src/app/page.tsx): composição da página principal.
+- [src/components/sections](src/components/sections): seções do portfólio.
+- [src/components/ui](src/components/ui): componentes de UI e dados de cada seção.
+
+## Objetivo do projeto
+
+Servir como vitrine pessoal para recrutadores, clientes e comunidade, destacando experiência, projetos e formas de contato em uma interface moderna e responsiva.

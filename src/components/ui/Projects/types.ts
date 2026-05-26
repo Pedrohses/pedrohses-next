@@ -5,5 +5,5 @@ export type Project = {
   stack: string[]
   repoUrl: string
   demoUrl?: string
-  source: "manual"
+  source: "github-pinned"
 }

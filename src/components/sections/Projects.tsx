@@ -1,10 +1,10 @@
 import { ProjectCard } from "@/components/ui/Projects/ProjectCard"
 import { ProjectsHeader } from "@/components/ui/Projects/ProjectsHeader"
-import { manualProjects } from "@/components/ui/Projects/projectData"
+import { getFeaturedProjects } from "@/components/ui/Projects/getFeaturedProjects"
 import { ScrollReveal } from "@/components/ui/Shared/ScrollReveal"
 
-export function Projects() {
-  const projects = manualProjects
+export async function Projects() {
+  const projects = await getFeaturedProjects()
 
   return (
     <section id="projects" className="bg-white/55 px-4 py-20 backdrop-blur-[1px] sm:px-6 md:py-28 dark:bg-black/70">
