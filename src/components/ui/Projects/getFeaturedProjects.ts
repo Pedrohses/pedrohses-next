@@ -6,6 +6,7 @@ type GitHubPinnedRepo = {
   description: string | null
   url: string
   homepageUrl: string | null
+  stargazerCount: number
   primaryLanguage: {
     name: string
   } | null
@@ -45,6 +46,7 @@ function mapPinnedRepoToProject(repo: GitHubPinnedRepo): Project {
     stack: stack.length > 0 ? stack : ["Open Source"],
     repoUrl: repo.url,
     demoUrl: repo.homepageUrl ?? undefined,
+    stars: repo.stargazerCount,
     source: "github-pinned",
   }
 }
@@ -68,6 +70,7 @@ export async function getFeaturedProjects(): Promise<Project[]> {
               description
               url
               homepageUrl
+              stargazerCount
               primaryLanguage {
                 name
               }

@@ -1,6 +1,7 @@
 import { ProjectCard } from "@/components/ui/Projects/ProjectCard"
 import { ProjectsHeader } from "@/components/ui/Projects/ProjectsHeader"
 import { getFeaturedProjects } from "@/components/ui/Projects/getFeaturedProjects"
+import { ProjectsEmptyState } from "@/components/ui/Projects/ProjectsEmptyState"
 import { ScrollReveal } from "@/components/ui/Shared/ScrollReveal"
 
 export async function Projects() {
@@ -12,11 +13,15 @@ export async function Projects() {
         <ProjectsHeader />
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <ScrollReveal key={project.id} delay={index * 0.08} y={16} amount={0.1}>
-              <ProjectCard project={project} />
-            </ScrollReveal>
-          ))}
+          {projects.length === 0 ? (
+            <ProjectsEmptyState />
+          ) : (
+            projects.map((project, index) => (
+              <ScrollReveal key={project.id} delay={index * 0.08} y={16} amount={0.1}>
+                <ProjectCard project={project} />
+              </ScrollReveal>
+            ))
+          )}
         </div>
       </ScrollReveal>
     </section>
