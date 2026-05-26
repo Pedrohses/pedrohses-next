@@ -6,6 +6,7 @@ import { HeroAvatar } from "@/components/ui/Hero/HeroAvatar"
 import { HeroDescription } from "@/components/ui/Hero/HeroDescription"
 import { HeroHeading } from "@/components/ui/Hero/HeroHeading"
 import { HeroTechBadges } from "@/components/ui/Hero/HeroTechBadges"
+import { HeroParticles } from "@/components/ui/Hero/HeroParticles"
 
 export function Hero() {
   const containerVariants: Variants = {
@@ -36,6 +37,7 @@ export function Hero() {
       id="hero"
       className="relative flex min-h-screen flex-col items-center justify-center bg-white/55 px-4 py-24 text-center backdrop-blur-[1px] sm:px-6 md:py-28 dark:bg-black/70"
     >
+      <HeroParticles />
       <motion.div
         variants={containerVariants}
         initial="hidden"
