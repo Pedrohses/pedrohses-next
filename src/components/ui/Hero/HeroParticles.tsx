@@ -10,8 +10,8 @@ interface Particle {
   r: number
 }
 
-const COUNT   = 65
-const CONNECT = 125
+const COUNT   = 100
+const CONNECT = 130
 const MOUSE_R = 160
 const REPEL_R = 88
 

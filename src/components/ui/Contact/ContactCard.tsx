@@ -32,7 +32,7 @@ export function ContactCard({ channel }: ContactCardProps) {
       href={channel.href}
       target={channel.href.startsWith("mailto:") ? undefined : "_blank"}
       rel={channel.href.startsWith("mailto:") ? undefined : "noreferrer"}
-      className="group block h-full w-full rounded-2xl border border-zinc-200 bg-zinc-50 p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-blue-200/60 hover:shadow-lg hover:shadow-blue-100/50 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-blue-800/50 dark:hover:shadow-blue-950/30"
+      className="group block h-full w-full rounded-2xl border border-zinc-200 bg-zinc-50 p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-blue-200/60 hover:shadow-xl hover:shadow-blue-300/60 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-blue-800/50 dark:hover:shadow-xl dark:hover:shadow-blue-500/25"
     >
       <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-200 bg-white text-zinc-600 transition-transform duration-300 group-hover:scale-110 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
         {icons[channel.icon]}

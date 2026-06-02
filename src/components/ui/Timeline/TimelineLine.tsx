@@ -5,7 +5,7 @@ import { motion } from "motion/react"
 export function TimelineLine() {
   return (
     <motion.div
-      className="absolute left-2 top-0 h-full w-px bg-zinc-300 sm:left-3 dark:bg-zinc-700"
+      className="absolute left-2 top-0 h-full w-px bg-linear-to-b from-blue-500 to-violet-500 opacity-60 sm:left-3 dark:opacity-80"
       initial={{ scaleY: 0 }}
       whileInView={{ scaleY: 1 }}
       viewport={{ once: true, amount: 0 }}
