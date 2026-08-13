@@ -62,7 +62,7 @@ export function Hero() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid w-full max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-20"
+        className="relative z-10 grid w-full max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-20"
       >
         <div className="flex items-center justify-center lg:order-2">
           <HeroAvatar itemVariants={itemVariants} px={px} py={py} />

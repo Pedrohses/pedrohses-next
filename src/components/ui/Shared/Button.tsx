@@ -15,7 +15,7 @@ const Button = React.forwardRef<HTMLAnchorElement, ButtonProps>(
   ({ className, href, children, variant = "default", ...props }, ref) => {
 
     const baseClass = "inline-flex items-center justify-center rounded-full text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background px-6 py-2.5"
-    const defaultClass = "bg-zinc-900 text-zinc-50 hover:bg-zinc-700 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200"
+    const defaultClass = "bg-zinc-900 text-zinc-50 shadow-lg shadow-zinc-900/20 hover:bg-zinc-700 dark:bg-zinc-50 dark:text-zinc-900 dark:shadow-black/40 dark:hover:bg-zinc-200"
     const outlineClass = "border border-zinc-200 bg-transparent hover:bg-zinc-100 dark:border-zinc-700 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-50"
 
     const finalClassName = cn(
