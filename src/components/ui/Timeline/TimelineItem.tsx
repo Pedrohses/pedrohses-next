@@ -10,7 +10,7 @@ interface TimelineItemProps {
 
 export function TimelineItem({ experience }: TimelineItemProps) {
   const isCurrent = experience.period.includes("Atual")
-  const tilt = useTilt()
+  const tilt = useTilt(1.5)
 
   return (
     <>
