@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useScroll, useTransform, type Variants } from "motion/react"
+import { motion, useMotionValue, useScroll, useTransform, type Variants } from "motion/react"
 import { HeroActions } from "@/components/ui/Hero/HeroActions"
 import { HeroAvatar } from "@/components/ui/Hero/HeroAvatar"
 import { HeroDescription } from "@/components/ui/Hero/HeroDescription"
@@ -11,6 +11,20 @@ import { HeroParticles } from "@/components/ui/Hero/HeroParticles"
 export function Hero() {
   const { scrollY } = useScroll()
   const chevronOpacity = useTransform(scrollY, [0, 180], [1, 0])
+
+  const px = useMotionValue(0.5)
+  const py = useMotionValue(0.5)
+
+  function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
+    const rect = e.currentTarget.getBoundingClientRect()
+    px.set((e.clientX - rect.left) / rect.width)
+    py.set((e.clientY - rect.top) / rect.height)
+  }
+
+  function handleMouseLeave() {
+    px.set(0.5)
+    py.set(0.5)
+  }
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -38,6 +52,8 @@ export function Hero() {
   return (
     <section
       id="hero"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       className="relative flex min-h-screen flex-col items-center justify-center bg-white/55 px-6 py-24 backdrop-blur-[1px] sm:px-8 md:py-28 dark:bg-black/70"
     >
       <div aria-hidden="true" className="hero-dot-grid pointer-events-none absolute inset-0" />
@@ -49,13 +65,13 @@ export function Hero() {
         className="grid w-full max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-20"
       >
         <div className="flex items-center justify-center lg:order-2">
-          <HeroAvatar itemVariants={itemVariants} />
+          <HeroAvatar itemVariants={itemVariants} px={px} py={py} />
         </div>
 
         <div className="flex flex-col items-center gap-5 text-center lg:order-1 lg:items-start lg:text-left">
           <HeroHeading itemVariants={itemVariants} />
           <HeroDescription itemVariants={itemVariants} />
-          <HeroTechBadges itemVariants={itemVariants} />
+          <HeroTechBadges />
           <HeroActions itemVariants={itemVariants} />
         </div>
       </motion.div>

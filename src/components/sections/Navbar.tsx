@@ -248,6 +248,7 @@ export function Navbar() {
               className="w-full py-2 text-base"
               isActive={activeHref === link.href}
               onClick={() => handleNavClick(link.href)}
+              underlineId="nav-underline-mobile"
             >
               {link.label}
             </NavLink>

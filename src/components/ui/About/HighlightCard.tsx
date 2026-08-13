@@ -1,3 +1,7 @@
+"use client"
+
+import { motion } from "motion/react"
+import { useTilt } from "@/components/ui/Shared/useTilt"
 import type { AboutHighlight, AboutHighlightIcon } from "./aboutData"
 
 interface HighlightCardProps {
@@ -30,13 +34,18 @@ const icons: Record<AboutHighlightIcon, React.ReactNode> = {
 }
 
 export function HighlightCard({ item }: HighlightCardProps) {
+  const tilt = useTilt()
+
   return (
-    <article className="group rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-blue-200/60 hover:shadow-xl hover:shadow-blue-300/60 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-blue-800/50 dark:hover:shadow-xl dark:hover:shadow-blue-500/25">
+    <motion.article
+      {...tilt}
+      className="group rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-blue-200/60 hover:shadow-xl hover:shadow-blue-300/60 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-blue-800/50 dark:hover:shadow-xl dark:hover:shadow-blue-500/25"
+    >
       <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6 dark:bg-blue-950/40 dark:text-blue-400">
         {icons[item.icon]}
       </div>
       <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">{item.title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{item.description}</p>
-    </article>
+    </motion.article>
   )
 }

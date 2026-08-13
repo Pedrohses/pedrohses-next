@@ -1,3 +1,7 @@
+"use client"
+
+import { motion } from "motion/react"
+import { useTilt } from "@/components/ui/Shared/useTilt"
 import type { ContactChannel, ContactChannelIcon } from "./contactData"
 
 interface ContactCardProps {
@@ -27,8 +31,11 @@ const icons: Record<ContactChannelIcon, React.ReactNode> = {
 }
 
 export function ContactCard({ channel }: ContactCardProps) {
+  const tilt = useTilt()
+
   return (
-    <a
+    <motion.a
+      {...tilt}
       href={channel.href}
       target={channel.href.startsWith("mailto:") ? undefined : "_blank"}
       rel={channel.href.startsWith("mailto:") ? undefined : "noreferrer"}
@@ -39,6 +46,6 @@ export function ContactCard({ channel }: ContactCardProps) {
       </div>
       <p className="text-xs font-semibold tracking-[0.14em] text-zinc-500 uppercase dark:text-zinc-400">{channel.label}</p>
       <p className="mt-1 break-all text-sm font-medium text-zinc-900 dark:text-zinc-100">{channel.value}</p>
-    </a>
+    </motion.a>
   )
 }

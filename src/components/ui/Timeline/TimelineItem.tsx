@@ -1,3 +1,7 @@
+"use client"
+
+import { motion } from "motion/react"
+import { useTilt } from "@/components/ui/Shared/useTilt"
 import type { Experience } from "./types"
 
 interface TimelineItemProps {
@@ -6,6 +10,7 @@ interface TimelineItemProps {
 
 export function TimelineItem({ experience }: TimelineItemProps) {
   const isCurrent = experience.period.includes("Atual")
+  const tilt = useTilt()
 
   return (
     <>
@@ -23,7 +28,10 @@ export function TimelineItem({ experience }: TimelineItemProps) {
         />
       )}
 
-      <article className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition-all duration-200 hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700">
+      <motion.article
+        {...tilt}
+        className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition-all duration-200 hover:border-zinc-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700"
+      >
         <div className="flex flex-wrap items-center gap-2 text-xs font-medium text-zinc-500 sm:text-sm dark:text-zinc-400">
           <span>{experience.period}</span>
           <span aria-hidden="true">•</span>
@@ -48,7 +56,7 @@ export function TimelineItem({ experience }: TimelineItemProps) {
             </li>
           ))}
         </ul>
-      </article>
+      </motion.article>
     </>
   )
 }

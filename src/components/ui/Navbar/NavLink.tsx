@@ -10,9 +10,10 @@ interface NavLinkProps {
   className?: string
   isActive?: boolean
   onClick?: React.MouseEventHandler<HTMLAnchorElement>
+  underlineId?: string
 }
 
-export function NavLink({ href, children, className, isActive = false, onClick }: NavLinkProps) {
+export function NavLink({ href, children, className, isActive = false, onClick, underlineId = "nav-underline" }: NavLinkProps) {
   return (
     <Link href={href} className={cn("relative group py-2", className)} onClick={onClick} aria-current={isActive ? "page" : undefined}>
       <motion.span
@@ -27,14 +28,22 @@ export function NavLink({ href, children, className, isActive = false, onClick }
       >
         {children}
       </motion.span>
-      
-      <motion.span 
-        className={cn(
-          "absolute bottom-0 left-0 h-0.5 w-full origin-left bg-blue-600 transition-transform",
-          isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-        )}
-        aria-hidden="true"
-      />
+
+      {!isActive && (
+        <span
+          className="absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 bg-blue-600 transition-transform group-hover:scale-x-100"
+          aria-hidden="true"
+        />
+      )}
+
+      {isActive && (
+        <motion.span
+          layoutId={underlineId}
+          className="absolute bottom-0 left-0 h-0.5 w-full bg-blue-600"
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          aria-hidden="true"
+        />
+      )}
     </Link>
   )
 }

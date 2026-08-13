@@ -1,3 +1,7 @@
+"use client"
+
+import { motion } from "motion/react"
+import { useTilt } from "@/components/ui/Shared/useTilt"
 import type { Project } from "./types"
 
 interface ProjectCardProps {
@@ -5,8 +9,12 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const tilt = useTilt()
+
   return (
-    <article className="flex h-full flex-col rounded-2xl border border-zinc-200 bg-zinc-50 p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-blue-200/60 hover:shadow-xl hover:shadow-blue-300/60 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-blue-800/50 dark:hover:shadow-xl dark:hover:shadow-blue-500/25">
+    <motion.article
+      {...tilt}
+      className="flex h-full flex-col rounded-2xl border border-zinc-200 bg-zinc-50 p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-blue-200/60 hover:shadow-xl hover:shadow-blue-300/60 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-blue-800/50 dark:hover:shadow-xl dark:hover:shadow-blue-500/25">
       <div className="mb-3 flex items-start justify-between gap-3">
         <h3 className="text-base font-semibold leading-snug text-zinc-900 dark:text-zinc-100">{project.name}</h3>
         <a
@@ -59,6 +67,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </a>
         ) : null}
       </div>
-    </article>
+    </motion.article>
   )
 }
