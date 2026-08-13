@@ -1,6 +1,7 @@
 'use client'
 
 import Image from "next/image"
+import { useState } from "react"
 import { motion, type MotionValue, type Variants } from "motion/react"
 import { useAvatarParallax } from "./useAvatarParallax"
 
@@ -12,6 +13,7 @@ interface HeroAvatarProps {
 
 export function HeroAvatar({ itemVariants, px, py }: HeroAvatarProps) {
   const { avatarStyle, badgeTopStyle, badgeBottomStyle } = useAvatarParallax(px, py)
+  const [squishCount, setSquishCount] = useState(0)
 
   return (
     <motion.div variants={itemVariants} className="flex flex-col items-center gap-3">
@@ -41,15 +43,33 @@ export function HeroAvatar({ itemVariants, px, py }: HeroAvatarProps) {
         >
           <div className="pointer-events-none absolute -inset-8 rounded-full border border-zinc-300/20 dark:border-zinc-600/15" aria-hidden="true" />
           <div className="pointer-events-none absolute -inset-16 rounded-full border border-zinc-300/10 dark:border-zinc-600/10" aria-hidden="true" />
-          <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 opacity-60 blur-xl transition duration-1000 group-hover:opacity-90 group-hover:duration-200" />
-          <Image
-            src="https://github.com/Pedrohses.png"
-            alt="Foto de Pedro Silva"
-            width={220}
-            height={220}
-            className="relative z-10 h-44 w-44 rounded-full border-4 border-white object-cover shadow-2xl sm:h-52 sm:w-52 md:h-56 md:w-56 dark:border-zinc-900"
-            priority
-          />
+          <motion.button
+            type="button"
+            onClick={() => setSquishCount((v) => v + 1)}
+            aria-label="Interagir com a foto de perfil"
+            className="relative block cursor-pointer rounded-full"
+            key={squishCount}
+            animate={
+              squishCount > 0
+                ? {
+                    scaleX: [1, 1.1, 0.96, 1.02, 1],
+                    scaleY: [1, 0.92, 1.06, 0.98, 1],
+                    rotate: [0, -3, 2, -1, 0],
+                  }
+                : {}
+            }
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 opacity-60 blur-xl transition duration-1000 group-hover:opacity-90 group-hover:duration-200" />
+            <Image
+              src="https://github.com/Pedrohses.png"
+              alt="Foto de Pedro Silva"
+              width={220}
+              height={220}
+              className="relative z-10 h-44 w-44 rounded-full border-4 border-white object-cover shadow-2xl sm:h-52 sm:w-52 md:h-56 md:w-56 dark:border-zinc-900"
+              priority
+            />
+          </motion.button>
         </motion.div>
       </motion.div>
 
