@@ -1,3 +1,5 @@
+import { FeaturedProjectCard } from "@/components/ui/Projects/FeaturedProjectCard"
+import { featuredProjects } from "@/components/ui/Projects/featuredProjects"
 import { ProjectCard } from "@/components/ui/Projects/ProjectCard"
 import { getFeaturedProjects } from "@/components/ui/Projects/getFeaturedProjects"
 import { ProjectsEmptyState } from "@/components/ui/Projects/ProjectsEmptyState"
@@ -18,13 +20,16 @@ export async function Projects() {
           className="mb-10 md:mb-12"
         />
 
-        {projects.length === 0 ? (
+        {featuredProjects.length === 0 && projects.length === 0 ? (
           <ProjectsEmptyState />
         ) : (
           <Carousel itemClassName="w-72 px-2 sm:w-80">
-            {projects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
+            {[
+              ...featuredProjects.map((project) => (
+                <FeaturedProjectCard key={project.id} project={project} />
+              )),
+              ...projects.map((project) => <ProjectCard key={project.id} project={project} />),
+            ]}
           </Carousel>
         )}
       </ScrollReveal>

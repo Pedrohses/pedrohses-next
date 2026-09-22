@@ -1,6 +1,6 @@
 "use client"
 
-import { Children, useLayoutEffect, useRef, useState, type PointerEvent as ReactPointerEvent, type ReactNode } from "react"
+import { Children, useLayoutEffect, useRef, useState, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent, type ReactNode } from "react"
 import { motion, useAnimationFrame, useMotionValue, useReducedMotion, useTransform } from "motion/react"
 
 interface CarouselProps {
@@ -10,6 +10,8 @@ interface CarouselProps {
   className?: string
   itemClassName?: string
 }
+
+const DRAG_THRESHOLD = 6
 
 function wrap(min: number, max: number, value: number) {
   const range = max - min
@@ -25,7 +27,9 @@ export function Carousel({ children, speed = 36, className, itemClassName }: Car
   const markerRef = useRef<HTMLDivElement>(null)
 
   const [setWidth, setSetWidth] = useState(0)
+  const isPointerDown = useRef(false)
   const isDragging = useRef(false)
+  const didDrag = useRef(false)
   const isHovering = useRef(false)
   const pointerStartX = useRef(0)
   const dragStartX = useRef(0)
@@ -50,20 +54,32 @@ export function Carousel({ children, speed = 36, className, itemClassName }: Car
     baseX.set(baseX.get() - (speed * delta) / 1000)
   })
 
+  // Drag only starts after the pointer moves past this threshold, so plain
+  // clicks on buttons/links inside the cards still fire normally.
   function handlePointerDown(event: ReactPointerEvent<HTMLDivElement>) {
-    isDragging.current = true
-    setIsGrabbing(true)
+    isPointerDown.current = true
+    didDrag.current = false
     pointerStartX.current = event.clientX
     dragStartX.current = baseX.get()
-    event.currentTarget.setPointerCapture(event.pointerId)
   }
 
   function handlePointerMove(event: ReactPointerEvent<HTMLDivElement>) {
-    if (!isDragging.current) return
-    baseX.set(dragStartX.current + (event.clientX - pointerStartX.current))
+    if (!isPointerDown.current) return
+    const deltaX = event.clientX - pointerStartX.current
+
+    if (!isDragging.current) {
+      if (Math.abs(deltaX) < DRAG_THRESHOLD) return
+      isDragging.current = true
+      didDrag.current = true
+      setIsGrabbing(true)
+      event.currentTarget.setPointerCapture(event.pointerId)
+    }
+
+    baseX.set(dragStartX.current + deltaX)
   }
 
   function endDrag(event: ReactPointerEvent<HTMLDivElement>) {
+    isPointerDown.current = false
     if (!isDragging.current) return
     isDragging.current = false
     setIsGrabbing(false)
@@ -72,12 +88,21 @@ export function Carousel({ children, speed = 36, className, itemClassName }: Car
     }
   }
 
+  // Swallow the click that follows a drag so a swipe never triggers a card action.
+  function handleClickCapture(event: ReactMouseEvent<HTMLDivElement>) {
+    if (!didDrag.current) return
+    didDrag.current = false
+    event.preventDefault()
+    event.stopPropagation()
+  }
+
   return (
     <div className={className} style={{ overflow: "hidden" }}>
       <motion.div
         ref={trackRef}
         className={`flex ${isGrabbing ? "cursor-grabbing" : "cursor-grab"} select-none`}
         style={{ x, touchAction: "pan-y" }}
+        onClickCapture={handleClickCapture}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={endDrag}
