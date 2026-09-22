@@ -61,9 +61,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
             href={project.demoUrl}
             target="_blank"
             rel="noreferrer"
-            className="text-xs font-medium text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+            className="inline-flex items-center justify-center rounded-full bg-zinc-900 px-4 py-2 text-xs font-medium text-zinc-50 transition-colors hover:bg-zinc-700 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200"
           >
-            Ver demo →
+            Acessar →
           </a>
         ) : null}
       </div>
