@@ -96,8 +96,10 @@ export function Carousel({ children, speed = 36, className, itemClassName }: Car
     event.stopPropagation()
   }
 
+  // Vertical padding (offset by negative margin) gives the hover lift + shadow
+  // room to render instead of being clipped by overflow-hidden.
   return (
-    <div className={className} style={{ overflow: "hidden" }}>
+    <div className={`-my-8 overflow-hidden py-8 ${className ?? ""}`}>
       <motion.div
         ref={trackRef}
         className={`flex ${isGrabbing ? "cursor-grabbing" : "cursor-grab"} select-none`}
