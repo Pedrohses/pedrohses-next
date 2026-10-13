@@ -91,6 +91,22 @@ export function ProjectModal({ project, open, onClose }: ProjectModalProps) {
               ))}
             </div>
 
+            {project.repos && project.repos.length > 0 ? (
+              <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+                {project.repos.map((repo) => (
+                  <a
+                    key={repo.url}
+                    href={repo.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-medium text-blue-600 underline-offset-4 hover:underline dark:text-blue-400"
+                  >
+                    {repo.label} no GitHub ↗
+                  </a>
+                ))}
+              </div>
+            ) : null}
+
             <div className="mt-6 space-y-3">
               {project.notices.map((notice) => (
                 <div
