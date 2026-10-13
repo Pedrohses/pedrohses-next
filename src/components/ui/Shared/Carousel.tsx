@@ -109,13 +109,15 @@ export function Carousel({ children, speed = 36, className, itemClassName }: Car
         onPointerMove={handlePointerMove}
         onPointerUp={endDrag}
         onPointerCancel={endDrag}
-        onPointerEnter={() => {
-          isHovering.current = true
+        // Hover is checked against the real DOM: portaled children (e.g. a card's
+        // modal) bubble React pointer events here even though they render outside.
+        onPointerOver={(event) => {
+          isHovering.current = trackRef.current?.contains(event.target as Node) ?? false
         }}
-        onPointerLeave={(event) => {
-          isHovering.current = false
-          endDrag(event)
+        onPointerOut={(event) => {
+          isHovering.current = trackRef.current?.contains(event.relatedTarget as Node | null) ?? false
         }}
+        onPointerLeave={endDrag}
       >
         {[0, 1, 2].map((copy) =>
           items.map((item, index) => (
