@@ -101,7 +101,7 @@ export function ProjectModal({ project, open, onClose }: ProjectModalProps) {
                     rel="noreferrer"
                     className="font-medium text-blue-600 underline-offset-4 hover:underline dark:text-blue-400"
                   >
-                    {repo.label} no GitHub ↗
+                    {repo.label} no GitHub
                   </a>
                 ))}
               </div>
