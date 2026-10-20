@@ -48,6 +48,14 @@ export function TimelineItem({ experience }: TimelineItemProps) {
 
         <p className="mt-3 text-sm leading-relaxed text-zinc-600 sm:text-base dark:text-zinc-400">{experience.summary}</p>
 
+        {experience.highlights.length > 0 && (
+          <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-zinc-600 marker:text-blue-500 dark:text-zinc-400">
+            {experience.highlights.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        )}
+
         <div className="mt-4 flex flex-wrap gap-2">
           {experience.skills.map((item) => (
             <span

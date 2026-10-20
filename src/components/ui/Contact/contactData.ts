@@ -19,8 +19,8 @@ export const contactChannels: ContactChannel[] = [
   {
     id: "linkedin",
     label: "LinkedIn",
-    value: "linkedin.com/in/pedro-silva-43985125b",
-    href: "https://linkedin.com/in/pedro-silva-43985125b",
+    value: "linkedin.com/in/pedrohses",
+    href: "https://linkedin.com/in/pedrohses",
     icon: "linkedin",
   },
   {

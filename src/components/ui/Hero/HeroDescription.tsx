@@ -12,8 +12,8 @@ export function HeroDescription({ itemVariants }: HeroDescriptionProps) {
       variants={itemVariants}
       className="max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg md:text-xl dark:text-zinc-400"
     >
-      Especializado na construção de APIs robustas, escaláveis e de alta performance. Há 2 anos transformando regras de negócio complexas em sistemas eficientes utilizando{" "}
-      <span className="font-medium text-zinc-900 dark:text-zinc-100">Node.js, Python e arquiteturas modernas.</span>
+      Desenvolvedor full stack com ênfase em back-end. Há 2 anos e meio construindo APIs, integrações de IA (RAG e MCP) e sistemas de cobrança em produção com{" "}
+      <span className="font-medium text-zinc-900 dark:text-zinc-100">Node.js, NestJS e Python.</span>
     </motion.p>
   )
 }

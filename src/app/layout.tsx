@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 const title = "Pedro Silva | Desenvolvedor Full Stack";
 const description =
-  "Portfólio de Pedro Silva. Especializado na construção de APIs robustas e escaláveis com Node.js e Python.";
+  "Portfólio de Pedro Silva, desenvolvedor full stack com ênfase em back-end: APIs com Node.js, NestJS e Python e integrações de IA (RAG, MCP).";
 
 export const metadata: Metadata = {
   title,
@@ -50,7 +50,7 @@ const jsonLd = {
   email: "pedrohsesilva@gmail.com",
   sameAs: [
     "https://github.com/Pedrohses",
-    "https://linkedin.com/in/pedro-silva-43985125b",
+    "https://linkedin.com/in/pedrohses",
   ],
 }
 

@@ -8,21 +8,21 @@ export type AboutHighlight = {
 
 export const aboutHighlights: AboutHighlight[] = [
   {
-    title: "Foco em arquitetura",
+    title: "Back-end e arquitetura",
     description:
-      "Experiência com APIs modulares, organização por camadas e código orientado a manutenção.",
+      "APIs REST com NestJS, FastAPI e Express, autenticação (JWT com RSA, OAuth), Clean Architecture e modelagem de dados em PostgreSQL, MySQL e MongoDB.",
     icon: "architecture",
   },
   {
-    title: "Escalabilidade e performance",
+    title: "IA aplicada",
     description:
-      "Atuação em melhorias de latência, filas assíncronas e tratamento robusto de erros.",
+      "RAG com busca vetorial, servidores MCP (Model Context Protocol), Google Vertex AI e integração de LLMs em produtos reais.",
     icon: "performance",
   },
   {
-    title: "Colaboração",
+    title: "Qualidade e entrega",
     description:
-      "Participação ativa com produto e design para transformar requisitos em entregas objetivas.",
+      "Testes unitários e de integração, code review, deploy com Docker em AWS e GCP, Scrum/Kanban e documentação técnica (DER, C4 Model).",
     icon: "collaboration",
   },
 ]

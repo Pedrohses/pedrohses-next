@@ -14,8 +14,8 @@ export function HeroActions({ itemVariants }: HeroActionsProps) {
         Ver meus projetos
       </Button>
       <motion.a
-        href="/Curriculo%20Pedro%20Silva.pdf"
-        download="Curriculo Pedro Silva.pdf"
+        href="/Curriculo-Pedro-Silva.pdf"
+        download="Curriculo-Pedro-Silva.pdf"
         className="inline-flex w-full items-center justify-center rounded-full border border-zinc-200 px-6 py-2.5 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-100 sm:w-auto dark:border-zinc-700 dark:text-zinc-50 dark:hover:bg-zinc-800"
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.97 }}

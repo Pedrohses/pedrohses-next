@@ -5,5 +5,8 @@ export type Experience = {
   period: string
   location: string
   summary: string
+  /** Conquistas e entregas, exibidas como lista. */
+  highlights: string[]
+  /** Tecnologias usadas, exibidas como tags. */
   skills: string[]
 }

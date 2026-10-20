@@ -86,7 +86,7 @@ export function HeroAvatar({ itemVariants, px, py }: HeroAvatarProps) {
             </svg>
           </span>
           <div>
-            <p className="text-xs font-semibold text-zinc-900 dark:text-zinc-100">2+ anos</p>
+            <p className="text-xs font-semibold text-zinc-900 dark:text-zinc-100">2,5+ anos</p>
             <p className="text-[10px] text-zinc-500 dark:text-zinc-400">Experiência</p>
           </div>
         </motion.div>

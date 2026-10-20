@@ -2,7 +2,7 @@
 
 import { motion, type Variants } from "motion/react"
 
-const techs = ["Node.js", "TypeScript", "Python", "NestJS", "Next.js", "Docker"]
+const techs = ["Node.js", "TypeScript", "NestJS", "Python", "FastAPI", "Next.js", "IA (RAG · MCP)"]
 
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 20 },

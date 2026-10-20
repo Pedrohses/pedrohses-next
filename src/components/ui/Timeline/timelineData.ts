@@ -2,57 +2,46 @@ import type { Experience } from "./types"
 
 export const experiences: Experience[] = [
   {
-    id: "exp-3",
+    id: "exp-besolution",
     company: "Besolution",
-    role: "Desenvolvedor Full Stack - Junior",
+    role: "Desenvolvedor Full Stack",
     period: "Set 2025 - Atual",
     location: "Remoto",
     summary:
-      "Atuação em desenvolvimento e manutenção de APIs para projetos diversos voltados ao ensino (SENAI), com foco em performance, segurança e escalabilidade.",
-    skills: [
-      "Desenvolvimento de APIs: Criação e manutenção de APIs RESTful escaláveis utilizando NestJS.",
-      "Performance: Análise e otimização de endpoints críticos para correção de gargalos.",
-      "Segurança: Implementação de rotinas de segurança, correção de vulnerabilidades e gestão de autenticação.",
-      "Testes: Escrita de testes unitários e de integração para garantir a robustez do código.",
-      "Cloud Computing: Deploy e monitoramento de sistemas utilizando GCP (Google Cloud Platform).",
-      "Integrações: Consumo de APIs externas e integração entre sistemas.",
-      "Documentação: Criação e atualização de documentação técnica de APIs.",
-      "Processos: Atuação com metodologias ágeis (Scrum) e participação em Code Reviews.",
+      "Desenvolvimento de APIs e integrações de IA para plataformas do SENAI em produção, como Carreira e Empregabilidade (carreira.senai.br) e Nai, a plataforma de IA do SENAI (nai.senai.br).",
+    highlights: [
+      "Criei o servidor MCP responsável pela comunicação do agente de IA da plataforma Carreira e implementei RAG com busca vetorial em aplicações do SENAI, com integrações ao Google Vertex AI.",
+      "Construí todo o back-end de uma plataforma de cálculo de emissões de carbono baseada em datasets de fatores de emissão.",
+      "Otimizei endpoints de sistemas legados e corrigi vulnerabilidades; escrevo testes unitários e de integração, participo de code reviews e faço deploy no GCP.",
     ],
+    skills: ["NestJS", "TypeScript", "MCP", "RAG", "Vertex AI", "GCP"],
   },
   {
-    id: "exp-2",
+    id: "exp-freelancer",
+    company: "Freelancer · SaaS B2B de gestão para reciclagem de metais",
+    role: "Desenvolvedor Back-end",
+    period: "2026",
+    location: "Remoto",
+    summary:
+      "Desenvolvimento do módulo completo de assinaturas e cobrança recorrente de um SaaS B2B (cliente confidencial).",
+    highlights: [
+      "Desenvolvi o módulo de assinaturas e cobrança recorrente integrado ao Asaas, com emissão de NFS-e, régua de cobrança e fluxos validados em sandbox.",
+      "Modelei o esquema de faturamento (10 tabelas) e implementei regras como cobrança por assento, uma forma de pagamento por organização e bloqueio de acesso na suspensão.",
+      "Construí o módulo de gestão financeira dos usuários, com dashboards, e configurei a infraestrutura com Docker, AWS e Supabase.",
+    ],
+    skills: ["Python", "FastAPI", "Asaas", "Supabase", "Docker", "AWS"],
+  },
+  {
+    id: "exp-omelete",
     company: "Omelete&Company",
-    role: "Desenvolvedor Full Stack - Estagiário",
+    role: "Estagiário de Desenvolvimento Full Stack",
     period: "Abr 2024 - Set 2025",
     location: "Remoto",
     summary:
-      "Desenvolvimento de funcionalidades e correção de bugs em plataforma de ecommerce.",
-    skills: [
-      "Responsável por documentação de códigos",
-      "Desenvolvimento de Software Full-stack com NestJS e Next.js",
-      "Bancos SQL e NoSQL Mysql e MongoDB",
-      "Containers Docker",
-      "Metodologia Scrum",
-      "Monitoramento e desenvolvimento de sistemas com AWS",
-      "Desenvolvimento de Softwares para envio de E-mail com Python",
+      "Desenvolvimento de funcionalidades e correção de bugs no e-commerce de ingressos Mundo Ticket e no site e CMS da CCXP.",
+    highlights: [
+      "Identifiquei e corrigi uma falha na lógica de pedidos que deixava de cobrar frete em compras só com produtos: a cobrança ocorria apenas quando havia credenciais no carrinho.",
     ],
-  },
-  {
-    id: "exp-1",
-    company: "Axalta Coating Systems",
-    role: "Assistente Administrativo - Jovem Aprendiz",
-    period: "Dez 2022 - Mar 2024",
-    location: "Guarulhos, SP",
-    summary:
-      "Início da carreira com foco em suporte administrativo e organização operacional, desenvolvendo atenção a detalhes e disciplina no ambiente corporativo.",
-    skills: [
-      "Suporte eficiente às rotinas administrativas.",
-      "Criação e gerenciamento de planilhas no Excel.",
-      "Organização do laboratório de desenvolvimento de cores.",
-      "Controle de empréstimos e cuidados de padrões de cores.",
-      "Envio internacional de padrões via FedEx.",
-      "Relatórios para clientes.",
-    ],
+    skills: ["Next.js", "React", "NestJS"],
   },
 ]

@@ -6,10 +6,10 @@ import { aboutHighlights } from "./aboutData"
 
 const identity = "Pedro Silva — Desenvolvedor Full Stack"
 
-const stack = ["Node.js", "TypeScript", "Python", "NestJS", "Next.js", "Docker"]
+const stack = ["Node.js", "TypeScript", "NestJS", "Python", "FastAPI", "Next.js", "PostgreSQL", "Docker", "GCP", "AWS"]
 
 const notes =
-  "Sempre em busca de evolução, meus focos atuais de estudo são Arquitetura Limpa, Domain-Driven Design (DDD) e Model Context Protocol (MCP). No tempo livre, dedico-me a compartilhar conhecimento técnico."
+  "Cursando Ciência da Computação na Universidade Cruzeiro do Sul (previsão: dez/2026), com certificação Microsoft Azure Data Fundamentals (DP-900). Uso desenvolvimento assistido por IA (Claude Code) no dia a dia. Inglês intermediário (leitura, escrita e conversação)."
 
 const tabs = ["whoami.sh", "skills.sh", "notes.md"] as const
 

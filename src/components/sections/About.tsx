@@ -8,8 +8,8 @@ export function About() {
 			<ScrollReveal className="mx-auto flex w-full max-w-5xl flex-col gap-10">
 				<SectionHeader
 					label="Sobre mim"
-					heading="Construindo soluções full stack com foco em clareza e impacto real"
-					description="Sou um desenvolvedor full stack apaixonado por resolver problemas de negócio com tecnologia. Nos últimos anos, trabalhei em projetos de diferentes tamanhos, desenhando APIs, automatizando processos e estruturando serviços para facilitar evolução do produto."
+					heading="Back-end sólido, IA aplicada e entregas que chegam à produção"
+					description="Sou desenvolvedor full stack com ênfase em back-end e 2 anos e meio de experiência com TypeScript, NestJS, Python e Next.js. Em plataformas do SENAI, atuo no desenvolvimento de APIs e integrações de IA (RAG, MCP, Vertex AI) e construí o back-end completo de uma plataforma de cálculo de emissões de carbono. Como freelancer, entreguei o módulo de assinaturas e cobrança recorrente de um SaaS B2B."
 				/>
 
 				<AboutTerminal />

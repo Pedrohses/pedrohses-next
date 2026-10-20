@@ -4,7 +4,7 @@ export const alt = "Pedro Silva | Desenvolvedor Full Stack";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const techs = ["Node.js", "TypeScript", "Python", "NestJS", "Next.js"];
+const techs = ["Node.js", "TypeScript", "NestJS", "Python", "Next.js"];
 
 export default function Image() {
   return new ImageResponse(
@@ -57,7 +57,7 @@ export default function Image() {
             marginBottom: 48,
           }}
         >
-          Especializado na construção de APIs robustas e escaláveis com Node.js e Python.
+          Back-end com Node.js, NestJS e Python, e integrações de IA (RAG, MCP).
         </div>
 
         <div style={{ display: "flex", gap: 12 }}>
